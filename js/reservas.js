@@ -262,6 +262,16 @@ function nuevaReserva(e){
             console.log(reservasObj)
             validarPais()
             
+
+            const fechaIdaDate = new Date(fechaIda);
+            const fechaRegresoDate = new Date(fechaRegreso);
+
+            // Validar que fecha de ida no sea posterior a fecha de regreso
+            if (fechaIdaDate > fechaRegresoDate) {
+                ui.imprimirAlerta('La fecha de ida no puede ser posterior a la fecha de regreso', 'error');
+                return; // Detener la creación de la reserva
+            }
+
             formulario.querySelector('button[type=submit]').textContent = 'Guardar'
             administrarReserva.editarReserva({...reservasObj})
             ui.imprimirAlerta('Se ha actualizado la reserva correctamente')
