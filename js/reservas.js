@@ -224,7 +224,7 @@ function datosReservas(e){
 
     }
 
-function validarPais(_origen, _destino) {
+function validarPais(origen, destino) {
         if (reservasObj.origen === reservasObj.destino){
             ui.imprimirAlerta('El pais de origen y el pais destino no pueden ser iguales', 'error');
             return true;
@@ -291,7 +291,7 @@ function nuevaReserva(e){
             administrarReserva.agregarReserva({...reservasObj})
             ui.imprimirAlerta('Se ha agendado su reserva satisfactoriamente')
     }
-    ui.imprimirReservas({ reservas: administrarReserva.reservas });
+    ui.imprimirReservas({reservas: administrarReserva.reservas})
     formulario.reset()
     console.log(reservasObj);
     reiniciarObjeto()
@@ -336,21 +336,14 @@ function cargarEdicion(reservaObjeto){
      // Llenar los inputs con la informacion del div donde estoy editando
      nombre.value = nombreReserva;
      idP.value = idPReserva;
-     telefono.value = telefonoReserva;fa
+     telefono.value = telefonoReserva;
      origen.value = origenReserva;
      destino.value = destinoReserva;
      viaje.value = viajeReserva;
      fechaIda.value = fechaIdaReserva;
      fechaRegreso.value = fechaRegresoReserva;
  
-      if (viajeReserva === ida) {
-        reservasObj.fechaRegreso = ""; // Eliminar valor si es 'solo ida'
-    } else if (viajeReserva === vuelta){
-        reservasObj.fechaRegreso = fechaRegresoReserva;
-    }
-
-
-    reservasObj.id = id;
+     
 
     //llenar el objeto
     reservasObj.nombre = nombreReserva
@@ -363,7 +356,14 @@ function cargarEdicion(reservaObjeto){
     reservasObj.fechaRegreso = fechaRegresoReserva
 
 
-   
+    if (viajeReserva === ida) {
+        reservasObj.fechaRegreso = ""; // Eliminar valor si es 'solo ida'
+    } else if (viajeReserva === vuelta){
+        reservasObj.fechaRegreso = fechaRegresoReserva;
+    }
+
+
+    reservasObj.id = id;
   
     ui.imprimirReservas({ reservas: administrarReserva.reservas });
      
