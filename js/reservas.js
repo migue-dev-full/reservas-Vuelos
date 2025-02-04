@@ -262,7 +262,7 @@ function nuevaReserva(e){
             console.log(reservasObj)
             validarPais()
             
-
+                // Validar fechas
             const fechaIdaDate = new Date(fechaIda);
             const fechaRegresoDate = new Date(fechaRegreso);
 
