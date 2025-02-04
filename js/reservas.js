@@ -336,7 +336,7 @@ function cargarEdicion(reservaObjeto){
      // Llenar los inputs con la informacion del div donde estoy editando
      nombre.value = nombreReserva;
      idP.value = idPReserva;
-     telefono.value = telefonoReserva;
+     telefono.value = telefonoReserva;fa
      origen.value = origenReserva;
      destino.value = destinoReserva;
      viaje.value = viajeReserva;
